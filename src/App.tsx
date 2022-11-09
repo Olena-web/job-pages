@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
+import React , {useState, useEffect} from 'react';
+//import logo from './logo.svg';
 import './App.css';
+import { getApiData } from './api';
+import {ApiData} from './types';
 
 function App() {
+  const [data, setApiData] = useState<ApiData[]>([]);
+  useEffect(() => {
+    getApiData().then((data) => {
+      setApiData(data);
+    });
+  }, []);
+  
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+       <p>{data[0].name}</p>
+       <img src={data[0].pictures[0]} alt="img"></img>
       </header>
     </div>
   );
 }
+
 
 export default App;
