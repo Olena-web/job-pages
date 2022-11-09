@@ -13,4 +13,5 @@ export type ApiData = {
     salary: string;
     title: string;
     updatedAt: string;
+    
     };
