@@ -2,7 +2,8 @@ import React , {useState, useEffect} from 'react';
 import { getApiData } from '../api';
 import {ApiData} from '../types';
 import DeleteIcon from '@mui/icons-material/Delete';
-
+import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
+import StarOutlinedIcon from '@mui/icons-material/StarOutlined';
 
 export function JobCard(props: {data: ApiData}, i: number) {
     const [data, setApiData] = useState<ApiData[]>([]);
@@ -15,7 +16,10 @@ export function JobCard(props: {data: ApiData}, i: number) {
     
     return (
         <div>
-          <DeleteIcon/>
+          <BookmarkBorderOutlinedIcon/>
+          <StarOutlinedIcon/>
+          <StarOutlinedIcon/>
+          <StarOutlinedIcon/>
           {/* //<p>{data[0].name}</p> */}
           {/* <img src={data[0].pictures[0]} alt="img"></img>
           <p>Department name {data[0].name}</p>

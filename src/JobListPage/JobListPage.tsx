@@ -30,7 +30,7 @@ export function JobList() {
                 phone: '',
                 pictures: [],
                 salary: '',
-                title: '{data.photos.photo[0].title}',
+                title: '',
                 updatedAt: ''
             }}  />
         
