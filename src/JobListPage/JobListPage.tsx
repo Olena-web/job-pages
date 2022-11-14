@@ -13,9 +13,27 @@ export function JobList() {
     
     return (
         <div>
-        <JobCard data={data[0]} />
-        <JobCard data={data[1]} />
-        <JobCard data={data[2]} />
+            {/* {data.map((data, i) => (
+                <JobCard data={data} key={i}/>
+            ))}
+        </div> */}
+        <JobCard data={{
+                address: '',
+                benefits: [],
+                createdAt: '',
+                description: '',
+                email: '',
+                employment_type: '',
+                id: '',
+                location: '',
+                name: '',
+                phone: '',
+                pictures: [],
+                salary: '',
+                title: '{data.photos.photo[0].title}',
+                updatedAt: ''
+            }}  />
+        
         </div>
     );
     }
