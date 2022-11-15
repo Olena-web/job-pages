@@ -1,11 +1,11 @@
-import { API_URL, BEARER_TOKEN,  URL_FLICKR } from "./constants";
+import { API_URL, BEARER_TOKEN } from "./constants";
 
 export const getApiData = async () => {
     try {
        
     const response = await fetch(API_URL, {
-        mode: 'no-cors',
-        credentials: 'include',
+        //mode: 'no-cors',
+        //credentials: 'include',
         method: "GET",
         headers: {
         Authorization: `Bearer ${BEARER_TOKEN}`,
@@ -13,7 +13,7 @@ export const getApiData = async () => {
        
     });
     const data = await response.json();
-    console.log(data);
+    console.log(data[0].pictures[0]);
     return data;
     }
      catch(error){
@@ -21,10 +21,3 @@ export const getApiData = async () => {
     }
 };
 
-// export async function getDataFromApi(tags: string) {
-//     const url = URL_FLICKR(tags);
-//     const response = await fetch(url);
-//     const data = await response.json();
-//     console.log(data);
-//     return data;
-//   }
