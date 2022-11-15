@@ -13,7 +13,7 @@ export const getApiData = async () => {
        
     });
     const data = await response.json();
-    console.log(data[0].pictures[0]);
+    console.log(data[0]);
     return data;
     }
      catch(error){
