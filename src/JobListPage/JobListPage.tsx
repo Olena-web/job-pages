@@ -5,18 +5,22 @@ import { JobCard } from '../JobCard/JobCard';
 
 export function JobList() {
     const [data, setApiData] = useState<ApiData[]>([]);
+    
+    
     useEffect(() => {
         getApiData().then((data) => {
         setApiData(data);
-        });
+        
+    });
     }, []);
     
     return (
         <div>
             <ul>
                 {data.map((data, index) => (
+                    
                 <li key= {index}>
-                <JobCard address={data.name} benefits={[]} createdAt={data.createdAt} description={''} email={''} employment_type={''} id={''} location={''} name={data.name} phone={''} pictures={data.pictures} salary={''} title={''} updatedAt={data.updatedAt} />
+                <JobCard address={data.name} benefits={[]} createdAt={data.createdAt} description={''} email={''} employment_type={''} id={''} location={data.location} name={data.name} phone={''} pictures={data.pictures} salary={''} title={''} updatedAt={data.updatedAt} />
                 </li>
             ))}
             </ul>

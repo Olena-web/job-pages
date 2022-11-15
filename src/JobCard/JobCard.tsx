@@ -2,6 +2,8 @@ import React  from 'react';
 import Avatar from '@mui/material/Avatar';
 
 import {ApiData} from '../types';
+import { getLocation } from '../api';
+
 import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
 import StarOutlinedIcon from '@mui/icons-material/StarOutlined';
 
@@ -13,8 +15,8 @@ constructor(props: ApiData) {
     this.state = {
         data: []
     };
+    
 }
-   
     render() {
         
         return(
@@ -27,7 +29,8 @@ constructor(props: ApiData) {
           <Avatar src={this.props.pictures[0]} alt="img" sx={{ width: 85, height: 85 }}></Avatar>
           <p>Department name {this.props.name}</p>
           <p>{this.props.address}</p>
-          <p> Created at {this.props.createdAt}</p>
+          <p> Updated at {this.props.updatedAt}</p>
+          <p> `${getLocation(this.props.location.lat,this.props.location.long )}`</p>
         </div>
         )
     }

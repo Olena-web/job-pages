@@ -1,4 +1,4 @@
-import { API_URL, BEARER_TOKEN } from "./constants";
+import { API_URL, BEARER_TOKEN, GEOLOCATION_URL, API_KEY } from "./constants";
 
 export const getApiData = async () => {
     try {
@@ -21,3 +21,14 @@ export const getApiData = async () => {
     }
 };
 
+
+export const getLocation= async (lat:number, lon: number) => {
+var requestOptions = {
+    method: 'GET',
+  };
+  
+  fetch(GEOLOCATION_URL.concat(`lat=${lat}lon=${lon}&apiKey=${API_KEY}`), requestOptions)
+    .then(response => response.json())
+    .then(result => console.log(result))
+    .catch(error => console.log('error', error));
+}
