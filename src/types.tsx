@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export type ApiData = {
     address: string;
     benefits: string[];
@@ -15,3 +17,4 @@ export type ApiData = {
     updatedAt: string;
     
     };
+   
