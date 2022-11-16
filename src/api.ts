@@ -1,4 +1,4 @@
-import { API_URL, BEARER_TOKEN, GEOLOCATION_URL, GEOLOCATION_KEY } from "./constants";
+import { API_URL, BEARER_TOKEN } from "./constants";
 
 export const getApiData = async () => {
     try {
