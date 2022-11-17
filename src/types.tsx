@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 
 export type ApiData = {
+    filter(arg0: (item: any) => boolean): unknown;
     address: string;
     benefits: string[];
     createdAt: string;

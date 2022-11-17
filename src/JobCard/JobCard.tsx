@@ -1,15 +1,15 @@
 import React  from 'react';
+import { NavLink, Navigate } from 'react-router-dom';
 import Avatar from '@mui/material/Avatar';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import CardActions from '@mui/material/CardActions';
 import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
 import StarOutlinedIcon from '@mui/icons-material/StarOutlined';
 import RoomOutlinedIcon from '@mui/icons-material/RoomOutlined';
 import {ApiData } from '../types';
 import { API_URL, BEARER_TOKEN, GEOLOCATION_KEY, GEOLOCATION_URL } from '../constants';
 import './JobCard.css';
-
+import { redirect } from 'react-router-dom';
 
 export const Location = (data: ApiData["location"]) => {
     const [location, setLocation] = React.useState('');
@@ -20,7 +20,7 @@ export const Location = (data: ApiData["location"]) => {
         fetch(GEOLOCATION_URL.concat(`lat=${data.lat}&lon=${data.long}&apiKey=${GEOLOCATION_KEY}`), requestOptions)
     .then(response => response.json())
     .then(result =>  {
-        console.log(result);
+       // console.log(result);
         let city = result.features[0].properties.city;
         let country = result.features[0].properties.country;
         if (city === undefined) city = "Kyiv";
@@ -54,7 +54,7 @@ export const Data = (data: ApiData['updatedAt']) => {
             let date = result.updatedAt;
             const one_day=1000*60*60*24;
             const d = new Date(date);
-            console.log(result);
+           // console.log(result);
             const dayToday = new Date().getTime();
             const diff = Math.ceil((dayToday - d.getTime())/(one_day));
             setDate(`${diff}`);
@@ -82,13 +82,21 @@ constructor(props: ApiData) {
     };
     
 }
+handleClick = () => {
+    console.log(this.props.id);
+    // <Navigate to={`/details/${this.props.id}`}></Navigate>
+    //redirect(`/details/${this.props.id}`);
+    redirect(`/details/`);
+}
 
     render() {
         return(
         <Card sx={{ maxWidth: 1400, maxHeight: 464, display: 'flex' }} className='card'>
             <Avatar src={this.props.pictures[0]} alt="img" sx={{ width: 85, height: 85 }}></Avatar>
           <CardContent sx={{ maxWidth: 823 }} className='content'>
-            <p>{this.props.title}</p> 
+            {/* <NavLink to={`/details`}> */}
+            <p onClick={this.handleClick}>{this.props.title}</p> 
+            {/* </NavLink> */}
             <p>Department name {this.props.name}</p>
             <p>{this.props.address}</p>
             <div className='location'>
@@ -105,7 +113,7 @@ constructor(props: ApiData) {
           </div>
           <div className="marks">
             <BookmarkBorderOutlinedIcon sx={{ maxWidth: 17 }}/>
-            <Data data={this.props.updatedAt}/>
+            {/* <Data data={this.props.updatedAt}/> */}
           </div>
         </Card>
         )
