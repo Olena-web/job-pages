@@ -1,13 +1,14 @@
 import React  from 'react';
 import Avatar from '@mui/material/Avatar';
-
-import {ApiData } from '../types';
-
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardActions from '@mui/material/CardActions';
 import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
 import StarOutlinedIcon from '@mui/icons-material/StarOutlined';
+import RoomOutlinedIcon from '@mui/icons-material/RoomOutlined';
+import {ApiData } from '../types';
 import { API_URL, BEARER_TOKEN, GEOLOCATION_KEY, GEOLOCATION_URL } from '../constants';
-import { JsxElement } from 'typescript';
-
+import './JobCard.css';
 
 
 export const Location = (data: ApiData["location"]) => {
@@ -19,6 +20,7 @@ export const Location = (data: ApiData["location"]) => {
         fetch(GEOLOCATION_URL.concat(`lat=${data.lat}&lon=${data.long}&apiKey=${GEOLOCATION_KEY}`), requestOptions)
     .then(response => response.json())
     .then(result =>  {
+        console.log(result);
         let city = result.features[0].properties.city;
         let country = result.features[0].properties.country;
         if (city === undefined) city = "Kyiv";
@@ -36,7 +38,7 @@ export const Location = (data: ApiData["location"]) => {
     );
 };
 
-export const Data = (data: ApiData["updatedAt"]) => {
+export const Data = (data: ApiData['updatedAt']) => {
     const [date, setDate] = React.useState('');
     React.useEffect(() => {
         fetch(API_URL, {
@@ -50,11 +52,11 @@ export const Data = (data: ApiData["updatedAt"]) => {
         }).then(response => response.json())
         .then(result => {
             let date = result.updatedAt;
-            var one_day=1000*60*60*24;
+            const one_day=1000*60*60*24;
             const d = new Date(date);
+            console.log(result);
             const dayToday = new Date().getTime();
             const diff = Math.ceil((dayToday - d.getTime())/(one_day));
-            console.log(date);
             setDate(`${diff}`);
             return diff;
         }).catch(error => console.log('error', error));
@@ -83,18 +85,29 @@ constructor(props: ApiData) {
 
     render() {
         return(
-        <div>
-          <BookmarkBorderOutlinedIcon/>
-          <StarOutlinedIcon/>
-          <StarOutlinedIcon/>
-          <StarOutlinedIcon/>
-          <p>{this.props.name}</p> 
-          <Avatar src={this.props.pictures[0]} alt="img" sx={{ width: 85, height: 85 }}></Avatar>
-          <p>Department name {this.props.name}</p>
-          <p>{this.props.address}</p>
-          <Data data={this.props.updatedAt}/>
-          <Location lat={this.props.location.lat} long={this.props.location.long} />
-        </div>
+        <Card sx={{ maxWidth: 1400, maxHeight: 464, display: 'flex' }} className='card'>
+            <Avatar src={this.props.pictures[0]} alt="img" sx={{ width: 85, height: 85 }}></Avatar>
+          <CardContent sx={{ maxWidth: 823 }} className='content'>
+            <p>{this.props.title}</p> 
+            <p>Department name {this.props.name}</p>
+            <p>{this.props.address}</p>
+            <div className='location'>
+            <RoomOutlinedIcon sx={{ fontSize: 15 }}/>
+            <Location lat={this.props.location.lat} long={this.props.location.long} />
+            </div>
+          </CardContent>
+          <div className='likes'>
+            <StarOutlinedIcon/>
+            <StarOutlinedIcon/>
+            <StarOutlinedIcon/>
+            <StarOutlinedIcon/>
+            <StarOutlinedIcon/>
+          </div>
+          <div className="marks">
+            <BookmarkBorderOutlinedIcon sx={{ maxWidth: 17 }}/>
+            <Data data={this.props.updatedAt}/>
+          </div>
+        </Card>
         )
     }
 }
