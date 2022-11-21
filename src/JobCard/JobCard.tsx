@@ -11,8 +11,7 @@ import { API_URL, BEARER_TOKEN, GEOLOCATION_KEY, GEOLOCATION_URL } from '../cons
 import './JobCard.css';
 
 
-export let ids: string[]= [];
-export let id: string = ids[0];
+
 export const Location = (data: ApiData["location"]) => {
     const [location, setLocation] = React.useState('');
     React.useEffect(() => {
@@ -85,22 +84,13 @@ constructor(props: ApiData) {
     
 }
 
-    handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-        const target = e.target as HTMLElement;
-        ids.push(this.props.id);
-    
-}
-
-
     render() {
         return(
         <Card sx={{ maxWidth: 1400, maxHeight: 464, display: 'flex' }} className='card' id = 'card'>
             <Avatar src={this.props.pictures[0]} alt="img" sx={{ width: 85, height: 85 }}></Avatar>
           <CardContent sx={{ maxWidth: 823 }} className='content'>
             <NavLink to={`/details/${this.props.id}`}>
-            <p  id={this.props.id}
-            onClick={this.handleClick}
-                >{this.props.title}</p> 
+            <p  id={this.props.id}>{this.props.title}</p> 
             </NavLink>
             <p>Department name {this.props.name}</p>
             <p>{this.props.address}</p>
