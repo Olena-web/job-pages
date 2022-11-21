@@ -26,6 +26,7 @@ export const JobDetails =() => {
   }, );
   }, [id]);
   const itemToShow = data.find((item) => item.id === id);
+  console.log(itemToShow);
            
             return (
             <>

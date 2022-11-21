@@ -21,14 +21,16 @@ export const Location = (data: ApiData["location"]) => {
         fetch(GEOLOCATION_URL.concat(`lat=${data.lat}&lon=${data.long}&apiKey=${GEOLOCATION_KEY}`), requestOptions)
     .then(response => response.json())
     .then(result =>  {
-       // console.log(result);
+       //console.log(result);
         let city = result.features[0].properties.city;
         let country = result.features[0].properties.country;
-        if (city === undefined) city = "Kyiv";
-        if (country === undefined) country = "Ukraine";
-        setLocation(`${city}, ${country}`);
+        let name = result.features[0].properties.name;
+        if (city === undefined) city = "";
+        if (country === undefined) country = "";
+        if (name === undefined) name = "";
+        setLocation(`${city} ${country} ${name}`);
         return{
-            city, country};
+            city, country, name};
     })
     .catch(error => console.log('error', error));
     }, [data.lat, data.long]);
