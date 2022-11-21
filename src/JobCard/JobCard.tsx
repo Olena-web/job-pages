@@ -7,7 +7,7 @@ import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlin
 import StarOutlinedIcon from '@mui/icons-material/StarOutlined';
 import RoomOutlinedIcon from '@mui/icons-material/RoomOutlined';
 import {ApiData } from '../types';
-import { API_URL, BEARER_TOKEN, GEOLOCATION_KEY, GEOLOCATION_URL } from '../constants';
+import { GEOLOCATION_KEY, GEOLOCATION_URL } from '../constants';
 import './JobCard.css';
 
 
@@ -21,7 +21,6 @@ export const Location = (data: ApiData["location"]) => {
         fetch(GEOLOCATION_URL.concat(`lat=${data.lat}&lon=${data.long}&apiKey=${GEOLOCATION_KEY}`), requestOptions)
     .then(response => response.json())
     .then(result =>  {
-       //console.log(result);
         let city = result.features[0].properties.city;
         let country = result.features[0].properties.country;
         let name = result.features[0].properties.name;
@@ -40,41 +39,6 @@ export const Location = (data: ApiData["location"]) => {
         </div>
     );
 };
-
-export const Data = (data: ApiData['updatedAt']) => {
-    const [date, setDate] = React.useState('');
-    React.useEffect(() => {
-        fetch(API_URL, {
-            //mode: 'no-cors',
-            //credentials: 'include',
-            method: "GET",
-            headers: {
-            Authorization: `Bearer ${BEARER_TOKEN}`,
-            },
-           
-        }).then(response => response.json())
-        .then(result => {
-            let date = result.updatedAt;
-            const one_day=1000*60*60*24;
-            const d = new Date(date);
-           // console.log(result);
-            const dayToday = new Date().getTime();
-            const diff = Math.ceil((dayToday - d.getTime())/(one_day));
-            setDate(`${diff}`);
-            return diff;
-        }).catch(error => console.log('error', error));
-                
-    }, [data]);
-
-
-       return (
-        <div>
-           Posted {date} ago
-        </div>
-    );
-};
-
-   
 export class JobCard extends React.Component<ApiData> {
     el: HTMLDivElement;
 constructor(props: ApiData) {
@@ -85,6 +49,19 @@ constructor(props: ApiData) {
     };
     
 }
+Data = (data: string) => {
+    const one_day=1000*60*60*24;
+    const d = new Date((data));
+    const dayToday = new Date().getTime();
+    const diff = Math.ceil((dayToday - d.getTime())/(one_day));
+    if (diff === 0) {
+       return (<div>"Posted today"</div>);
+    } else if (diff === 1) {
+        return (<div>"Posted yesetrday"</div>);
+    } else {
+        return (<div>"Posted {diff} days ago"</div>);
+    }
+};
 
     render() {
         return(
@@ -110,8 +87,8 @@ constructor(props: ApiData) {
           </div>
           <div className="marks">
             <BookmarkBorderOutlinedIcon sx={{ maxWidth: 17 }}/>
-            {/* <Data data={this.props.updatedAt}/> */}
-          </div>
+            {this.Data(this.props.updatedAt)}
+            </div>
         </Card>
         )
     }
