@@ -21,13 +21,8 @@ constructor(props: ApiData) {
         <Routes>
           <Route path="/" element={<PaginationComponent />} />
           <Route path="*" element={<NotFound />} />
-          <Route path={`/details`} element={<JobDetails filter={function (arg0: (item: any) => boolean): unknown {
-            throw new Error('Function not implemented.');
-          } } address={''} benefits={[]} createdAt={''} description={this.props.description} email={''} employment_type={''} id={''} location={{
-            lat: 0,
-            long: 0
-          }} name={''} phone={''} pictures={''} salary={''} title={''} updatedAt={''} />} />
-          
+          {/* <Route path={`/details/${this.props.id}`} element={<JobDetails   />} /> */}
+          <Route path={`/details/:id`} element={<JobDetails   />} />
         </Routes>
       </main>
     );

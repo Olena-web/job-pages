@@ -1,5 +1,5 @@
 import React  from 'react';
-import { NavLink, Navigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import Avatar from '@mui/material/Avatar';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -9,8 +9,10 @@ import RoomOutlinedIcon from '@mui/icons-material/RoomOutlined';
 import {ApiData } from '../types';
 import { API_URL, BEARER_TOKEN, GEOLOCATION_KEY, GEOLOCATION_URL } from '../constants';
 import './JobCard.css';
-import { redirect } from 'react-router-dom';
 
+
+export let ids: string[]= [];
+export let id: string = ids[0];
 export const Location = (data: ApiData["location"]) => {
     const [location, setLocation] = React.useState('');
     React.useEffect(() => {
@@ -82,21 +84,24 @@ constructor(props: ApiData) {
     };
     
 }
-handleClick = () => {
-    console.log(this.props.id);
-    // <Navigate to={`/details/${this.props.id}`}></Navigate>
-    //redirect(`/details/${this.props.id}`);
-    redirect(`/details/`);
+
+    handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+        const target = e.target as HTMLElement;
+        ids.push(this.props.id);
+    
 }
+
 
     render() {
         return(
-        <Card sx={{ maxWidth: 1400, maxHeight: 464, display: 'flex' }} className='card'>
+        <Card sx={{ maxWidth: 1400, maxHeight: 464, display: 'flex' }} className='card' id = 'card'>
             <Avatar src={this.props.pictures[0]} alt="img" sx={{ width: 85, height: 85 }}></Avatar>
           <CardContent sx={{ maxWidth: 823 }} className='content'>
-            {/* <NavLink to={`/details`}> */}
-            <p onClick={this.handleClick}>{this.props.title}</p> 
-            {/* </NavLink> */}
+            <NavLink to={`/details/${this.props.id}`}>
+            <p  id={this.props.id}
+            onClick={this.handleClick}
+                >{this.props.title}</p> 
+            </NavLink>
             <p>Department name {this.props.name}</p>
             <p>{this.props.address}</p>
             <div className='location'>
