@@ -53,12 +53,7 @@ export const JobDetails =() => {
                 <div className='salary'>
                   {itemToShow?.salary} Brutto, per year
                 </div>
-                <p>Department name {itemToShow?.name}</p>
-                <p>{itemToShow?.address}</p>
-                <div className='location'>
                 
-                <Location lat={itemToShow?.location.lat} long={itemToShow?.location.long} />
-                </div>
             
             {Data(itemToShow.createdAt, itemToShow.updatedAt)}
             <div className='description'>
@@ -93,6 +88,14 @@ export const JobDetails =() => {
         <Link to="/">RETURN TO JOB BOARD</Link> 
           </div>
           <aside>
+          <p>Department name {itemToShow?.name}</p>
+          <p>{itemToShow?.address}</p>
+          <div className='location'>
+          <RoomOutlinedIcon sx={{ fontSize: 15 }}/>
+          <Location lat={itemToShow?.location.lat} long={itemToShow?.location.long} />
+          </div>
+          <p>{itemToShow?.phone}</p>
+          <p>{itemToShow?.email}</p>
           <Map lat={itemToShow?.location.lat} long={itemToShow?.location.long} width={402} height={430}/>
           </aside>
         </div>
