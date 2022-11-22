@@ -11,12 +11,19 @@
     
     width: 75vw;
 }
-aside{
+aside {
     margin-top: 56px;
     width: 402px;
+    border-radius: 8px;
+}
+.company {
+    display: flex;
+    flex-direction: column;
     background: #2A3047;
     border-radius: 8px;
     color: white;
     text-align: left;
     padding: 63px 31px 63px 31px;
+    font-size: 18px;
+    height: 218px;
 }

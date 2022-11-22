@@ -88,15 +88,16 @@ export const JobDetails =() => {
         <Link to="/">RETURN TO JOB BOARD</Link> 
           </div>
           <aside>
-          <p>Department name {itemToShow?.name}</p>
-          <p>{itemToShow?.address}</p>
-          <div className='location'>
-          <RoomOutlinedIcon sx={{ fontSize: 15 }}/>
-          <Location lat={itemToShow?.location.lat} long={itemToShow?.location.long} />
+            <div className='company'>
+              <p>Department name {itemToShow?.name}</p>
+              <div className='location'>
+              <RoomOutlinedIcon sx={{ fontSize: 15 }}/>
+              <p>{itemToShow?.address}</p>
+              </div>
+              <p>{itemToShow?.phone}</p>
+              <p>{itemToShow?.email}</p>
           </div>
-          <p>{itemToShow?.phone}</p>
-          <p>{itemToShow?.email}</p>
-          <Map lat={itemToShow?.location.lat} long={itemToShow?.location.long} width={402} height={430}/>
+          <Map lat={itemToShow?.location.lat} long={itemToShow?.location.long} width={402} height={218}/>
           </aside>
         </div>
       </Container>
