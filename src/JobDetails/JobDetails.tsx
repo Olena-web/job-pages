@@ -6,6 +6,7 @@ import CardContent from '@mui/material/CardContent';
 import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
 import StarOutlinedIcon from '@mui/icons-material/StarOutlined';
 import RoomOutlinedIcon from '@mui/icons-material/RoomOutlined';
+import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
 
 import {Location} from '../JobCard/JobCard';
 import { ApiData } from '../types';
@@ -14,6 +15,7 @@ import { useEffect, useState } from 'react';
 import { getApiData } from '../api';
 import  {Map} from '../Map/Map';
 import {Data } from '../Data/Data';
+import { Description } from '../Description/Description';
 import './JobDetails.css';
 import { Container } from '@mui/material';
 
@@ -43,7 +45,7 @@ export const JobDetails =() => {
               <h1>JOB DETAILS</h1>
               <BookmarkBorderOutlinedIcon sx={{ maxWidth: 17 }}/>
               <button> Save to my list</button>
-              <BookmarkBorderOutlinedIcon sx={{ maxWidth: 17 }}/>
+              <ShareOutlinedIcon sx={{ maxWidth: 17 }}/>
               <button> Share </button>
             </header>
            <button>Apply now</button>
@@ -53,11 +55,9 @@ export const JobDetails =() => {
                 <div className='salary'>
                   {itemToShow?.salary} Brutto, per year
                 </div>
-                
-            
             {Data(itemToShow.createdAt, itemToShow.updatedAt)}
             <div className='description'>
-              {itemToShow?.description}
+             { Description(itemToShow?.description)}
             </div>
             <button>Apply now</button>
           <div className='additional'>
