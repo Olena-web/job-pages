@@ -3,16 +3,18 @@
 import React, { useEffect, useState } from "react";
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
+import { Container } from "@mui/material";
 
 import { getApiData } from '../api';
 import { ApiData } from "../types";
 import { JobCard } from "../JobCard/JobCard";
+import './Pagination.css';
 
 
 const JobList = (data: ApiData[]) => {
   
   return (
-    <ul>
+    <ul className="joblist">
     {data.map((data, index) => (
     <li key= {index}>
     <JobCard address={data.name} benefits={[]} createdAt={data.createdAt} description={data.description} email={''} employment_type={''} id={data.id} location={data.location} name={data.name} phone={''} pictures={data.pictures} salary={''} title={data.title} updatedAt={data.updatedAt} filter={function (arg0: (item: any) => boolean): unknown {
@@ -41,8 +43,7 @@ export function PaginationComponent() {
     useEffect(() => {
     getApiData().then((data) => {
     setData(data);
-    //console.log(data);
-    });
+     });
 }, []);
 
  
@@ -51,12 +52,12 @@ export function PaginationComponent() {
   };
 
   return (
-    <>
+    <Container>
       {JobList(currentItems)}
       <Stack spacing={2}>
-        <Pagination count={18} page={currentPage} onChange={handleChange} />
+        <Pagination count={18} page={currentPage} onChange={handleChange} className='pagination'/>
     </Stack>
-    </>
+    </Container>
   );
 }
 

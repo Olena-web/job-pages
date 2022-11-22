@@ -8,7 +8,7 @@ export type ApiData = {
     email: string;
     employment_type: string;
     id: string;
-    location: {lat: number | undefined, long: number | undefined};
+    location: {lat: number | undefined, long: number | undefined, width?: number, height?: number};
     name: string;
     phone: string;
     pictures: string;

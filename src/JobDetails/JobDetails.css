@@ -1,0 +1,17 @@
+.job-details-page {
+    display: flex;
+    flex-direction: row; 
+    min-height: none;
+    width: 100vw;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    
+    width: 75vw;
+}
+aside{
+    margin-top: 56px;
+    width: 402px;
+}

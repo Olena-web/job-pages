@@ -8,6 +8,7 @@ import StarOutlinedIcon from '@mui/icons-material/StarOutlined';
 import RoomOutlinedIcon from '@mui/icons-material/RoomOutlined';
 import {ApiData } from '../types';
 import { GEOLOCATION_KEY, GEOLOCATION_URL } from '../constants';
+import {Data} from '../Data/Data';
 import './JobCard.css';
 
 
@@ -49,19 +50,6 @@ constructor(props: ApiData) {
     };
     
 }
-Data = (createdData: string, updatedData: string) => {
-    const one_day=1000*60*60*24;
-    const d1 = new Date(createdData).getTime();
-    const d2 = new Date(updatedData).getTime();
-    const diff = Math.ceil((d2-d1)/(one_day));
-    if (diff === 0) {
-       return (<div>"Posted today"</div>);
-    } else if (diff === 1) {
-        return (<div>"Posted yesterday"</div>);
-    } else {
-        return (<div>"Posted {diff} days ago"</div>);
-    }
-};
 
     render() {
         return(
@@ -87,7 +75,7 @@ Data = (createdData: string, updatedData: string) => {
           </div>
           <div className="marks">
             <BookmarkBorderOutlinedIcon sx={{ maxWidth: 17 }}/>
-            {this.Data(this.props.createdAt, this.props.updatedAt)}
+            {Data(this.props.createdAt, this.props.updatedAt)}
             </div>
         </Card>
         )

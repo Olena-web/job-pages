@@ -1,0 +1,45 @@
+.pagination {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 515px;
+    height: 52px;
+    box-shadow: 2px 1px 7px rgba(0, 0, 0, 0.08), 0px 2px 1px -1px rgba(0, 0, 0, 0.04), 0px 1px 3px rgba(0, 0, 0, 0.12);
+    border-radius: 10.4px;
+}
+.css-1p5q5e5-MuiStack-root{
+    align-items: center;
+}
+.css-wjh20t-MuiPagination-ul>li:nth-child(1) {
+    margin-right: 35px;
+}
+.css-wjh20t-MuiPagination-ul>li:nth-child(1) ::after {
+    content: "";
+    position: absolute;
+    left: 30px;
+    height: 31px;
+    bottom: 0;
+    width: 2px;
+    background-color: gray;
+ }
+ .joblist  {
+    padding: 10px;
+}
+.joblist > li {
+    list-style: none;
+    gap: 32px;
+    margin-bottom: 8px;
+}
+
+.css-wjh20t-MuiPagination-ul>li:last-child {
+    margin-left: 35px;
+}
+.css-wjh20t-MuiPagination-ul>li:last-child ::after {
+    content: "";
+    position: absolute;
+    right: 30px;
+    height: 31px;
+    bottom: 0;
+    width: 2px;
+    background-color: gray;
+ }
