@@ -1,14 +1,11 @@
 //https://refine.dev/blog/react-router-useparams/
 
-import Avatar from '@mui/material/Avatar';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
-import StarOutlinedIcon from '@mui/icons-material/StarOutlined';
 import RoomOutlinedIcon from '@mui/icons-material/RoomOutlined';
 import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
 
-import {Location} from '../JobCard/JobCard';
 import { ApiData } from '../types';
 import { useParams, Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
@@ -47,9 +44,10 @@ export const JobDetails =() => {
               <button> Save to my list</button>
               <ShareOutlinedIcon sx={{ maxWidth: 17 }}/>
               <button> Share </button>
+              <div className='separator'></div>
             </header>
            <button>Apply now</button>
-            <Card sx={{ maxWidth: 1400, display: 'flex' }} className='details'>
+            <div className='details'>
                <CardContent sx={{ maxWidth: 823 }} className='content'>
                 <p>{itemToShow?.title}</p> 
                 <div className='salary'>
@@ -84,12 +82,12 @@ export const JobDetails =() => {
             </div>
           </div>
           </CardContent> 
-        </Card>
+        </div>
         <Link to="/">RETURN TO JOB BOARD</Link> 
           </div>
           <aside>
             <div className='company'>
-              <p>Department name {itemToShow?.name}</p>
+              <h3>Department name {itemToShow?.name}</h3>
               <div className='location'>
               <RoomOutlinedIcon sx={{ fontSize: 15 }}/>
               <p>{itemToShow?.address}</p>

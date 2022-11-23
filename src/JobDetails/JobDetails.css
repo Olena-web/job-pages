@@ -6,10 +6,10 @@
 }
 
 .details {
+    padding-right: 113px;
     display: flex;
     flex-direction: column;
-    
-    width: 75vw;
+    box-shadow: none;
 }
 aside {
     margin-top: 56px;
@@ -23,7 +23,18 @@ aside {
     border-radius: 8px;
     color: white;
     text-align: left;
-    padding: 63px 31px 63px 31px;
+    padding: 31px 0px 31px 62px;
     font-size: 18px;
     height: 218px;
+    background-image: url(../../public/circle-bg.svg);
+    background-position-y: -2%;
+    background-position-x: -250%;
+    background-repeat: no-repeat;
+}
+.separator {
+    height: 1px;
+    width: 100%;
+    background: #3A4562;
+    mix-blend-mode: normal;
+    opacity: 0.13;
 }
