@@ -1,22 +1,22 @@
 //https://refine.dev/blog/react-router-useparams/
+import { useParams, Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
-import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
 import RoomOutlinedIcon from '@mui/icons-material/RoomOutlined';
 import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
 import ChevronLeftOutlinedIcon from '@mui/icons-material/ChevronLeftOutlined';
 import EuroSymbolIcon from '@mui/icons-material/EuroSymbol';
+import { Container } from '@mui/material';
 
 import { ApiData } from '../types';
-import { useParams, Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
 import { getApiData } from '../api';
 import  {Map} from '../Map/Map';
 import {Data } from '../Data/Data';
 import { Description } from '../Description/Description';
+
 import './JobDetails.css';
-import { Container } from '@mui/material';
 
 
 export const JobDetails =() => {

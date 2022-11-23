@@ -1,16 +1,18 @@
 import React  from 'react';
 import { NavLink } from 'react-router-dom';
+
 import Avatar from '@mui/material/Avatar';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
 import StarOutlinedIcon from '@mui/icons-material/StarOutlined';
 import RoomOutlinedIcon from '@mui/icons-material/RoomOutlined';
+
 import {ApiData } from '../types';
 import { GEOLOCATION_KEY, GEOLOCATION_URL } from '../constants';
 import {Data} from '../Data/Data';
-import './JobCard.css';
 
+import './JobCard.css';
 
 
 export const Location = (data: ApiData["location"]) => {

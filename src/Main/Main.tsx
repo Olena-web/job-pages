@@ -21,7 +21,6 @@ constructor(props: ApiData) {
         <Routes>
           <Route path="/" element={<PaginationComponent />} />
           <Route path="*" element={<NotFound />} />
-          {/* <Route path={`/details/${this.props.id}`} element={<JobDetails   />} /> */}
           <Route path={`/details/:id`} element={<JobDetails   />} />
         </Routes>
       </main>

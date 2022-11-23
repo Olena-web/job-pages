@@ -1,4 +1,3 @@
-import React  from 'react';
 import {  GEOLOCATION_KEY } from '../constants';
 import { ApiData } from '../types';
 
