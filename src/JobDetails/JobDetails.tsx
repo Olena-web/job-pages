@@ -50,7 +50,9 @@ export const JobDetails =() => {
               </div>
             </header>
               <div className='separator'></div>
-           <button className='apply'>Apply now</button>
+              <div className= 'button-wrapper'>
+              <button className='apply'>Apply now</button>
+            </div>
             <div className='details'>
                <CardContent sx={{ maxWidth: 823 }} className='content'>
                 <div className='title'>
@@ -71,7 +73,10 @@ export const JobDetails =() => {
             
              { Description(itemToShow?.description)}
             </div>
-            <button className='apply'>Apply now</button>
+            <div className= 'button-wrapper'>
+              <button className='apply'>Apply now</button>
+            </div>
+          <div className='add-wrapper'>
           <div className='additional'>
             <h2> Additional info </h2>
             <div className='separator'></div>
@@ -87,7 +92,6 @@ export const JobDetails =() => {
             </div>
       
           </div>
-          
           <div className='images'>
             <h2>Attached images</h2>
             <div className='separator'></div>
@@ -97,6 +101,8 @@ export const JobDetails =() => {
               <img src={itemToShow?.pictures[2]} alt="img3" style={{ width: 234, height: 156 }} />
             </div>
           </div>
+          </div>  
+
           </CardContent> 
         </div>
         <Link className='return' to="/" >  
@@ -104,6 +110,9 @@ export const JobDetails =() => {
         RETURN TO JOB BOARD</Link>
           </div>
           <aside>
+            <h2 className='contacts'>Contacts</h2>
+            <div className='separator separator-3'></div>
+            <div className='contact-wrapper'>
             <div className='company'>
               <h3>Department name {itemToShow?.name}</h3>
               <div className='location'>
@@ -112,8 +121,9 @@ export const JobDetails =() => {
               </div>
               <p>{itemToShow?.phone}</p>
               <p>{itemToShow?.email}</p>
-          </div>
-          <Map lat={itemToShow?.location.lat} long={itemToShow?.location.long} width={402} height={218}/>
+            </div>
+          <Map lat={itemToShow?.location.lat} long={itemToShow?.location.long} width={0} height={0}/>
+            </div>
           </aside>
         </div>
       </Container>

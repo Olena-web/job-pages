@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: row; 
     min-height: none;
-    width: 100vw;
 }
 .job-details {
     padding-right: 113px;
@@ -68,6 +67,13 @@ aside {
     width: 402px;
     border-radius: 8px;
 }
+.contacts {
+    display: none;
+}
+.separator-3 {
+    display: none;
+}
+
 .company {
     display: flex;
     flex-direction: column;
@@ -142,6 +148,10 @@ h3 {
     border: 1px solid #FFCF00;
     color: #988B49;
 }
+.add-wrapper {
+    display: flex;
+    flex-direction: column;
+}
 .image-wrapper {
     margin-top: 12px;
     margin-bottom: 89px;
@@ -171,9 +181,16 @@ h3 {
     text-decoration: none;
     font-size: 12px;
 }
-.apply {
+.button-wrapper {
     margin-top: 39px;
     margin: bottom 32px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: center;
+    flex-direction: row;
+}
+.apply {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -182,4 +199,66 @@ h3 {
     background: #384564;
     border-radius: 8px;
     color: white;
+}
+
+@media (max-width: 1024px) {
+    .job-details-page {
+        flex-direction: column;
+    }
+    .job-details {
+        padding-right: 0px;
+    }
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .separator :first-child {
+        margin-top: -34px;
+    }
+    .salary {
+        flex-direction: column-reverse;
+        min-width: 120px;
+        align-items: flex-end;
+    }
+
+    #root > div > main > div > div > div > div.button-wrapper > button {
+        display: none;
+    }
+    .title-name {
+        min-width: 223px
+    }
+    .add-wrapper {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .image-wrapper {
+        margin-bottom: 55px
+    }
+    .return {
+        display: none;
+    }
+    .contacts {
+        display: block;
+    }
+    .separator-3 {
+        display: block;
+        margin-bottom: 21px;
+    }
+    .aside {
+        width: 372px;
+    }
+    .contact-wrapper {
+        margin-bottom: 37px;
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+    }
+    .company {
+        width: 304px;
+    }
+    aside {
+        width: auto;
+    }
 }
