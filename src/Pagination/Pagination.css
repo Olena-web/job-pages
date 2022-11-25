@@ -24,6 +24,7 @@
  }
  .joblist  {
     padding: 10px;
+    background: #F5F5F5;
 }
 .joblist > li {
     list-style: none;
@@ -42,4 +43,16 @@
     bottom: 0;
     width: 2px;
     background-color: gray;
+ }
+
+ @media (max-width: 460px) {
+
+.css-wjh20t-MuiPagination-ul>li:last-child,
+.css-wjh20t-MuiPagination-ul>li:first-child {
+    display: none;
+    }
+    .pagination {
+        width: 100%;
+    }
+
  }

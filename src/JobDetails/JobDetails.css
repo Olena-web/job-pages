@@ -201,7 +201,7 @@ h3 {
     color: white;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1342px) {
     .job-details-page {
         flex-direction: column;
     }
@@ -215,9 +215,9 @@ h3 {
     .separator :first-child {
         margin-top: -34px;
     }
-    .data {
+    /* .data {
         margin-left: -14.5rem;
-    }
+    } */
     .salary {
         flex-direction: column-reverse;
         min-width: 120px;

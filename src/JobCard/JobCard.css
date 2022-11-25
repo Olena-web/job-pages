@@ -12,6 +12,10 @@
 .marks p {
     color: #878D9D;
 }
+.css-1jodtne-MuiPaper-root-MuiCard-root {
+    background-color: white;
+    
+}
 .card {
     display: flex;
     align-content: space-between;
@@ -19,7 +23,8 @@
     padding: 24px 16px;
     box-shadow: 2px 1px 7px rgba(0, 0, 0, 0.08), 0px 2px 1px -1px rgba(0, 0, 0, 0.04), 0px 1px 3px rgba(0, 0, 0, 0.12);
     border-radius: 8px;
-    height: 133px;
+    height: 164px;
+    
 }
 .card-content {
     display: flex;
@@ -85,5 +90,19 @@
         margin: 0;
         max-height: 46px;
         overflow: hidden;
+    }
+}
+@media (max-width: 460px) {
+    .css-1jodtne-MuiPaper-root-MuiCard-root {
+        background-color: #F5F5F5!important;
+    }
+    
+    .icons {
+        gap: 120px;
+    }
+    .card {
+        height: 174px;
+        width: 341px;
+        padding: 16px 17px;
     }
 }
