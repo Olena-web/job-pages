@@ -5,6 +5,12 @@
     height: 148px;
     flex-direction: column;
     align-items: flex-end;
+    justify-content: space-between;
+    color : #70778B
+    
+}
+.marks p {
+    color: #878D9D;
 }
 .card {
     display: flex;
@@ -13,20 +19,71 @@
     padding: 24px 16px;
     box-shadow: 2px 1px 7px rgba(0, 0, 0, 0.08), 0px 2px 1px -1px rgba(0, 0, 0, 0.04), 0px 1px 3px rgba(0, 0, 0, 0.12);
     border-radius: 8px;
-    height: 164px;
+    height: 133px;
+}
+.card-content {
+    display: flex;
+    flex-direction:row;
+    gap: 26px;
+    text-align: left;
+    align-items: center;
+}
+.card-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 650px;
 }
 
-.content {
-    text-align: left;
+
+.card-description{
+    max-width: 550px;
+    font-size: 20px;
 }
-.likes {
-    
-    width: 560px;
+.icons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
+
 .location {
     display: flex;
     gap: 10px;
     align-items: center;
+    color: #878D9D;
+    font-size: 16px;
+}
+.card_department-name {
+    color: #878D9D;
 }
 
-
+@media (max-width: 1024px) {
+    .card {
+        height: 206px;
+        flex-direction: column-reverse;
+        padding: 16px 17px;
+        justify-content: center;
+    }
+  
+    .marks svg {
+        display: none;
+    } 
+    .marks {
+        height: auto;
+        font-size: 14px;
+    }
+    .likes svg {
+        /* margin-top: 17px; */
+        width: 16px;
+    }
+    .card-wrapper {
+        margin: 0;
+        width: 100%;
+        line-height: normal;
+    }
+    .card-description{
+        font-size: 18px;
+        margin: 0;
+        max-height: 46px;
+        overflow: hidden;
+    }
+}

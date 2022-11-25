@@ -215,6 +215,9 @@ h3 {
     .separator :first-child {
         margin-top: -34px;
     }
+    .data {
+        margin-left: -14.5rem;
+    }
     .salary {
         flex-direction: column-reverse;
         min-width: 120px;
@@ -230,6 +233,7 @@ h3 {
     .add-wrapper {
         display: flex;
         flex-direction: column-reverse;
+        width: 100%;
     }
     .image-wrapper {
         margin-bottom: 55px

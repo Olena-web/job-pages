@@ -56,29 +56,33 @@ constructor(props: ApiData) {
     render() {
         return(
         <Card sx={{ maxWidth: 1400, maxHeight: 464, display: 'flex' }} className='card' id = 'card'>
+          <CardContent sx={{ maxWidth: 823 }} className='card-content'>
             <Avatar src={this.props.pictures[0]} alt="img" sx={{ width: 85, height: 85 }}></Avatar>
-          <CardContent sx={{ maxWidth: 823 }} className='content'>
-            <NavLink to={`/details/${this.props.id}`}>
-            <p  id={this.props.id}>{this.props.title}</p> 
-            </NavLink>
-            <p>Department name {this.props.name}</p>
-            <p>{this.props.address}</p>
-            <div className='location'>
-            <RoomOutlinedIcon sx={{ fontSize: 15 }}/>
-            <Location lat={this.props.location.lat} long={this.props.location.long} />
+
+            <div className='card-wrapper'>
+                <NavLink to={`/details/${this.props.id}`}>
+                <p  id={this.props.id} className='card-description'>{this.props.title}</p> 
+                </NavLink>
+                <p className='card_department-name'>Department name {this.props.name}</p>
+                <div className='location'>
+                <RoomOutlinedIcon sx={{ fontSize: 15 }}/>
+                <Location lat={this.props.location.lat} long={this.props.location.long} />
+                </div>
             </div>
           </CardContent>
+          <div className="icons">
           <div className='likes'>
-            <StarOutlinedIcon/>
-            <StarOutlinedIcon/>
-            <StarOutlinedIcon/>
-            <StarOutlinedIcon/>
-            <StarOutlinedIcon/>
+            <StarOutlinedIcon className='star'/>
+            <StarOutlinedIcon className='star'/>
+            <StarOutlinedIcon className='star'/>
+            <StarOutlinedIcon className='star'/>
+            <StarOutlinedIcon className='star'/>
           </div>
           <div className="marks">
-            <BookmarkBorderOutlinedIcon sx={{ maxWidth: 17 }}/>
+            <BookmarkBorderOutlinedIcon sx={{ width: 20, height: 20}}/>
             {Data(this.props.createdAt, this.props.updatedAt)}
             </div>
+          </div>
         </Card>
         )
     }

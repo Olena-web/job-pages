@@ -3,3 +3,9 @@
   font-family: 'Proxima Nova', sans-serif;
   src: local('Proxima Nova Font'), url(./fonts/Proxima-Nova-Font.otf) format('otf');
 }
+a {
+  text-decoration: none;
+}
+body {
+  background: #F5F5F5;
+}
