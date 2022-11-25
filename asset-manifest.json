@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/Olena-web.github.io/react-job-pages/static/css/main.2f91941e.css",
+    "main.js": "/Olena-web.github.io/react-job-pages/static/js/main.ab807462.js",
+    "static/js/787.25de22d2.chunk.js": "/Olena-web.github.io/react-job-pages/static/js/787.25de22d2.chunk.js",
+    "static/media/Proxima-Nova-Font.otf": "/Olena-web.github.io/react-job-pages/static/media/Proxima-Nova-Font.7bc9ce404c297c24f210.otf",
+    "index.html": "/Olena-web.github.io/react-job-pages/index.html",
+    "static/media/circle-bg.svg": "/Olena-web.github.io/react-job-pages/static/media/circle-bg.236f9c2691e7196ee642.svg",
+    "main.2f91941e.css.map": "/Olena-web.github.io/react-job-pages/static/css/main.2f91941e.css.map",
+    "main.ab807462.js.map": "/Olena-web.github.io/react-job-pages/static/js/main.ab807462.js.map",
+    "787.25de22d2.chunk.js.map": "/Olena-web.github.io/react-job-pages/static/js/787.25de22d2.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2f91941e.css",
+    "static/js/main.ab807462.js"
+  ]
+}
